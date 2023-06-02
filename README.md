@@ -45,7 +45,7 @@ Darcula Theme
 
 ```json
 {    
-	"C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.errorSquiggles": "disabled",
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,
     "C_Cpp.autocomplete": "default",
     "C_Cpp.default.intelliSenseMode": "windows-msvc-x64",
