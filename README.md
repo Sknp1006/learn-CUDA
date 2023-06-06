@@ -58,3 +58,18 @@ Darcula Theme
 }
 ```
 
+## 2.参考资料
+- 官方：
+    - [CUDA官方文档](https://docs.nvidia.com/cuda/) 
+    - [NVIDIA/cuda-samples](https://github.com/NVIDIA/cuda-samples) 
+    - [CUDA Code Samples](https://developer.nvidia.com/cuda-code-samples) 
+    - [CUDA Zone](https://developer.nvidia.com/cuda-zone) 
+    - [基于CUDA的应用程序](https://developer.nvidia.com/cuda-action-research-apps) 
+- 电子书：
+    - [《CUDA并行程序设计》](https://pan.baidu.com/s18_GJKiuuQlbCREnL1Iahhw?pwd=dpge) 
+- 相关视频：
+    - https://www.bilibili.com/video/BV1vJ411D73S 
+- 其他：
+    - [OpenCL](https://www.khronos.org/opencl) 
+    - [C++ Accelerated Massive Parallelism](https://learn.microsoft.com/zh-cn/cpp/parallel/amp/cpp-amp-cpp-accelerated-massive-parallelism?view=msvc-170) 
+    
