@@ -17,7 +17,7 @@ scoop bucket add versions
 scoop install versions/cuda11.6
 ```
 
-- 下载 [`cuDNN`](链接：https://pan.baidu.com/s/1ZeVygsBDv3qrlr_mXLQ38Q?pwd=kgaa) 并解压到cuda安装目录的根目录，默认安装路径为 `C:\Users\用户名\scoop\apps\cuda11.6\11.6.2` 
+- 下载 [`cuDNN`](https://pan.baidu.com/s/1tcxxyhBh1wl5_toUFbcMGw?pwd=2013) 并解压到cuda安装目录的根目录，默认安装路径为 `C:\Users\用户名\scoop\apps\cuda11.6\11.6.2` 
 
 - current文件夹相当于快捷方式，可使用 `scoop reset` 切换版本：
 
