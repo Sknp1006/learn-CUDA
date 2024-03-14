@@ -6,3 +6,4 @@ include_directories(${CUDA_INCLUDE_DIRS})
 message(STATUS "CUDA_INCLUDE_DIRS: ${CUDA_INCLUDE_DIRS}")
 
 cuda_add_executable(${PROJECT_NAME} thread.cu)
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)
