@@ -58,7 +58,13 @@ Darcula Theme
 }
 ```
 
-## 2.参考资料
+## 2.编译
+```powershell
+cmake -B build -S .
+cmake --build build
+```
+
+## 3.参考资料
 - 官方：
     - [CUDA官方文档](https://docs.nvidia.com/cuda/) 
     - [NVIDIA/cuda-samples](https://github.com/NVIDIA/cuda-samples) 
@@ -72,4 +78,4 @@ Darcula Theme
 - 其他：
     - [OpenCL](https://www.khronos.org/opencl) 
     - [C++ Accelerated Massive Parallelism](https://learn.microsoft.com/zh-cn/cpp/parallel/amp/cpp-amp-cpp-accelerated-massive-parallelism?view=msvc-170) 
-    
+
