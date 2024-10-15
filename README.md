@@ -2,13 +2,13 @@
 
 ## 1.准备环境
 - [x] 操作系统：Windows11
-- [x] CUDA：11.6
-- [x] cuDNN：8.9
+- [x] CUDA：12.6
+- [x] cuDNN：8.8.0
 - [x] 最新的Nvidia显卡驱动
 
 ### 1.1.安装CUDA与cuDNN
 
-- 推荐在windows上使用 [**scoop**](https://scoop.sh) ：
+<!-- - 推荐在windows上使用 [**scoop**](https://scoop.sh) ：
 
 > Scoop是一个Windows下的命令行包管理器，类似于Linux下的apt-get或yum。使用Scoop，你可以方便地安装、升级和卸载各种软件包，而无需手动下载和安装。Scoop的包管理方式类似于Homebrew，它使用GitHub上的存储库来管理软件包。Scoop支持自动更新和版本控制，可以轻松地管理多个版本的软件包。Scoop还支持自定义存储库和桶，可以方便地添加自己的软件包。Scoop是一个开源项目，可以在GitHub上找到它的源代码和文档。
 
@@ -23,7 +23,11 @@ scoop install versions/cuda11.6
 
 ```powershell
 scoop reset cuda11.6
-```
+``` -->
+
+- 资源获取 [CUDA12.6 && cuDNN8.8](https://pan.baidu.com/s/1paZ-MSXFU-ubKce14qWDsQ?pwd=qgyz)
+- 安装过程：略
+- 安装完成务必重启电脑！！！
 
 ### 1.2 编辑器环境
 
@@ -60,8 +64,7 @@ Darcula Theme
 
 ## 2.编译
 ```powershell
-cmake -B build -S .
-cmake --build build
+.\build.bat
 ```
 
 ## 3.参考资料
@@ -74,6 +77,7 @@ cmake --build build
 - 电子书：
     - [《CUDA并行程序设计》](https://pan.baidu.com/s/16Q-lNmrZIrXqYjTBeBArnQ?pwd=pj27) 
 - 相关视频：
+    - https://www.bilibili.com/video/BV16b4y1E74f 
     - https://www.bilibili.com/video/BV1vJ411D73S 
 - 其他：
     - [OpenCL](https://www.khronos.org/opencl) 
