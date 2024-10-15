@@ -1,7 +1,7 @@
 # 学习CUDA
 
 ## 1.准备环境
-- [x] 操作系统：Windows10
+- [x] 操作系统：Windows11
 - [x] CUDA：11.6
 - [x] cuDNN：8.9
 - [x] 最新的Nvidia显卡驱动
