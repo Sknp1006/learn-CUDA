@@ -72,7 +72,7 @@ cmake --build build
     - [CUDA Zone](https://developer.nvidia.com/cuda-zone) 
     - [基于CUDA的应用程序](https://developer.nvidia.com/cuda-action-research-apps) 
 - 电子书：
-    - [《CUDA并行程序设计》](https://pan.baidu.com/s18_GJKiuuQlbCREnL1Iahhw?pwd=dpge) 
+    - [《CUDA并行程序设计》](https://pan.baidu.com/s/16Q-lNmrZIrXqYjTBeBArnQ?pwd=pj27) 
 - 相关视频：
     - https://www.bilibili.com/video/BV1vJ411D73S 
 - 其他：
