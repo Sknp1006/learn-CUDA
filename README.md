@@ -76,10 +76,25 @@ Darcula Theme
     - [基于CUDA的应用程序](https://developer.nvidia.com/cuda-action-research-apps) 
 - 电子书：
     - [《CUDA并行程序设计》](https://pan.baidu.com/s/16Q-lNmrZIrXqYjTBeBArnQ?pwd=pj27) 
+    - [CUDA Professional](https://github.com/brucefan1983/CUDA-Programming)
 - 相关视频：
     - https://www.bilibili.com/video/BV16b4y1E74f 
     - https://www.bilibili.com/video/BV1vJ411D73S 
 - 其他：
     - [OpenCL](https://www.khronos.org/opencl) 
     - [C++ Accelerated Massive Parallelism](https://learn.microsoft.com/zh-cn/cpp/parallel/amp/cpp-amp-cpp-accelerated-massive-parallelism?view=msvc-170) 
+    - [Algorithms for Modern Hardware](https://en.algorithmica.org/hpc/) 
 
+
+## Commit 规范
+> [https://fe-notes.yunyoujun.cn/common/dev/#commit-message](https://fe-notes.yunyoujun.cn/common/dev/#commit-message)
+
+- **build** ：对构建系统或者外部依赖项进行了修改
+- **ci** ：对CI配置文件或脚本进行了修改
+- **docs** ：对文档进行了修改
+- **feat** ：增加新的特征
+- **fix** ：修复bug
+- **pref** ：提高性能的代码更改
+- **refactor** ：既不是修复bug也不是添加特征的代码重构
+- **style** ：不影响代码含义的修改，比如空格、格式化、缺失的分号等
+- **test** ：增加确实的测试或者矫正已存在的测试
