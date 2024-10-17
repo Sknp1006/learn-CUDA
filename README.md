@@ -76,7 +76,8 @@ Darcula Theme
     - [基于CUDA的应用程序](https://developer.nvidia.com/cuda-action-research-apps) 
 - 电子书：
     - [《CUDA并行程序设计》](https://pan.baidu.com/s/16Q-lNmrZIrXqYjTBeBArnQ?pwd=pj27) 
-    - [CUDA Professional](https://github.com/brucefan1983/CUDA-Programming)
+    - [CUDA Professional](https://github.com/brucefan1983/CUDA-Programming) 
+    - [更多...](https://pan.baidu.com/s/1paZ-MSXFU-ubKce14qWDsQ?pwd=qgyz) 
 - 相关视频：
     - https://www.bilibili.com/video/BV16b4y1E74f 
     - https://www.bilibili.com/video/BV1vJ411D73S 
