@@ -1,24 +1,59 @@
 #include <cuda_runtime.h>
-#include <device_launch_parameters.h>
+#include <cstdio>
 
-#include <stdio.h>
-
-__global__ void test(void)  // __global__ 为CUDA的关键字,表示代码在设备端(GPU端)运行, 可以在CPU端被调用
+__global__ void sayGlobalHello()
 {
-    printf("Hello CUDA!\n");
+    printf("hello world!\n");
 }
 
-int main(void)
+__device__ void sayDeviceHello()
 {
-    test <<<1, 10 >>> ();  // 函数调用,  <<< >>>中的第一个参数表示块的个数, 第二个参数表示每个线程块中线程的个数
+    printf("Hello from GPU!\n");
+}
 
-    // 这里是使用一个线程块,这个线程块中只有一个线程执行这个函数.
-    cudaDeviceSynchronize(); // 会阻塞当前程序的执行，直到所有任务都处理完毕（这里的任务其实就是指的是所有的线程都已经执行完了kernel function）。
-    // 通俗讲,就是等待设备端的线程执行完成
-    // 一个线程块中可以有多个线程,GPU的线程是GPU的最小操作单元
-    int count;
-    cudaGetDeviceCount(&count); // 获取当前设备的数量
-    printf("Device Count = %d\n", count);
+__host__ __device__ void saySayHello()
+{
+#ifdef __CUDA_ARCH__ // 判断是否在 GPU 上运行
+    printf("Hello from GPU! %d\n", __CUDA_ARCH__);
+#else
+    printf("Hello from CPU!\n");
+#endif
+}
 
+__global__ void call_in_global()
+{
+    printf("call __host__ __device__ in __global__: ");
+    saySayHello();  // 此时进入 __CUDA_ARCH__ 分支
+}
+
+__host__ void call_in_host()
+{
+    printf("call __host__ __device__ in __host__: ");
+    saySayHello();  // 此时进入 else 分支
+}
+
+__global__ void callDevice()
+{
+    printf("call __device__ function in __global__: ");
+    sayDeviceHello();
+}
+
+int main(int argc, char* argv[])
+{
+    sayGlobalHello<<<1, 1>>>();           // 直接调用 __global__ 运行在 GPU 上 
+    //printf -> (Hello world!)
+    cudaDeviceSynchronize();
+
+    saySayHello();                  // 直接调用 __host__ __device__ 运行在 CPU 上 
+    //printf -> (Hello from CPU!)
+    callDevice<<<1, 1>>>();         // __global__ 正确调用同名的 __device__ 函数 运行在 GPU 上 
+    //printf -> (call __device__ function in __global__: Hello from GPU!)
+    cudaDeviceSynchronize();
+
+    call_in_global<<<1, 1>>>();     // __global__ 调用 __host__ __device__ 函数, 运行在 GPU 上 
+    //printf -> (call __host__ __device__ in __global__: Hello from GPU! 750)
+    cudaDeviceSynchronize();
+    call_in_host();                 // __host__ 调用 __host__ __device__ 函数, 运行在 CPU 上 
+    //printf -> (call __host__ __device__ in __host__: Hello from CPU!)
     return 0;
 }
