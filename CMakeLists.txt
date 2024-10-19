@@ -1,16 +1,12 @@
 cmake_minimum_required(VERSION 3.14)
 project(CUDDA)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 17)  # C++17
+set(CMAKE_CUDA_STANDARD 17)  # nvcc 
+# set(CMAKE_BUILD_TYPE Release)  // build.bat已指定为Release
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/install)
+set(CMAKE_CUDA_ARCHITECTURES 75)  # Nvidia Geforce 2070s
+set(CMAKE_CUDA_SEPARABLE_COMPILATION OFF)  # 分离声明和定义，不建议开启，关闭可方便自动内联优化
 
-cmake_policy(SET CMP0146 NEW)
-# set(CUDA_TOOLKIT_ROOT_DIR "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.6")
-# set(CUDA_NVCC_EXECUTABLE ${CUDA_TOOLKIT_ROOT_DIR}/bin/nvcc.exe)
-# set(CUDA_INCLUDE_DIRS ${CUDA_TOOLKIT_ROOT_DIR}/include)
-# set(CUDA_CUDART_LIBRARY ${CUDA_TOOLKIT_ROOT_DIR}/lib/x64/cudart.lib)
-
-# 添加子目录
 add_subdirectory("1.HelloWorld")
-add_subdirectory("2.Thread")
