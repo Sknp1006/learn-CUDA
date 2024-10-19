@@ -22,3 +22,9 @@ add_executable(02memory memory.cu)
 target_include_directories(02memory PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(02memory ${CUDA_LIBRARIES})
 install(TARGETS 02memory DESTINATION bin)
+
+# array.cu
+add_executable(03array array.cu)
+target_include_directories(03array PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(03array ${CUDA_LIBRARIES})
+install(TARGETS 03array DESTINATION bin)
