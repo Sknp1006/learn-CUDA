@@ -1,9 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(HelloWorld LANGUAGES CXX CUDA)
 
-find_package(CUDA REQUIRED)
-message(STATUS "cuda version: " ${CUDA_VERSION_STRING})
-include_directories(${CUDA_INCLUDE_DIRS})
+find_package(CUDAToolkit REQUIRED)
 
 # helloworld.cu
 add_executable(00helloworld helloworld.cu)
