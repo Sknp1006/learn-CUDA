@@ -31,7 +31,7 @@
 
 - cudaMemcpy 会自动同步,可以省略 cudaDeviceSynchronize() 函数;
 
-- cudaMemcpy 函数的第四个参数是枚举类型, 表示数据传输的方向: 
+- cudaMemcpy 函数的第四个参数是枚举类型, 表示数据传输的方向:
   - cudaMemcpyHostToDevice: 从主机内存拷贝到设备内存;
   - cudaMemcpyDeviceToHost: 从设备内存拷贝到主机内存;
   - cudaMemcpyDeviceToDevice: 设备内存之间拷贝;
@@ -40,8 +40,19 @@
 - cudaMalloc 函数用于在设备上分配内存, cudaFree 用于释放设备上的内存;
 
 - cudaMallocMangaed 函数用于在统一内存上分配内存:
-  - 当从CPU访问时,会自动进行数据拷贝,无需手动调用cudaMemcpy,释放内存时使用cudaFree; 
-  - 统一内存有一定的开销,有条件尽量分离显存和内存; 
+  - 当从CPU访问时,会自动进行数据拷贝,无需手动调用cudaMemcpy,释放内存时使用cudaFree;
+  - 统一内存有一定的开销,有条件尽量分离显存和内存;
+
+- 除了sinf之外，还有__sinf低精度的函数，适合有性能要求的图形学任务;
+- __fdividef(x, y)提供更快的浮点除法，精度相同，但在 2^126 < y < 2^128 时会得到错误结果;
+
+- 一些编译器选项:
+  - --use_fast_math: 自动将sinf替换为__sinf; 
+  - --ftz=true: 将极小数（denormal）替换为0;
+  - --prec-div=false: 降低除法精度，提高性能;
+  - --prec-sqrt=false: 降低开方精度，提高性能;
+  - --fmad: 默认开启，会自动把a*b+c替换为fma(a, b, c);
+  - 开启 --use_fast_math 选项会自动开启以上所有选项;
 
 ### 关于CMP0146警告
 ```powershell
