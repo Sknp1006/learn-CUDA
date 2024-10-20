@@ -42,3 +42,10 @@ target_include_directories(05math PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(05math ${CUDA_LIBRARIES})
 target_compile_options(05math PUBLIC $<$<COMPILE_LANGUAGE:CUDA>:--extended-lambda>)
 install(TARGETS 05math DESTINATION bin)
+
+# thrust.cu
+add_executable(06thrust thrust.cu)
+target_include_directories(06thrust PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(06thrust ${CUDA_LIBRARIES})
+target_compile_options(06thrust PUBLIC $<$<COMPILE_LANGUAGE:CUDA>:--extended-lambda>)
+install(TARGETS 06thrust DESTINATION bin)
