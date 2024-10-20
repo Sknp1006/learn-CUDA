@@ -28,3 +28,10 @@ add_executable(03array array.cu)
 target_include_directories(03array PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(03array ${CUDA_LIBRARIES})
 install(TARGETS 03array DESTINATION bin)
+
+# sugar.cu
+add_executable(04sugar sugar.cu)
+target_include_directories(04sugar PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(04sugar ${CUDA_LIBRARIES})
+target_compile_options(04sugar PUBLIC $<$<COMPILE_LANGUAGE:CUDA>:--extended-lambda>)  # 启用CUDA扩展lambda，允许lambda声明为__device__
+install(TARGETS 04sugar DESTINATION bin)
