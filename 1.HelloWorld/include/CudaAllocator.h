@@ -25,9 +25,9 @@ struct CudaAllocator {
             ::new((void *)p) T(std::forward<Args>(args)...);
     }
 
-    template <class U> // cihou shabi wendous
-    constexpr CudaAllocator(CudaAllocator<U> const &other) noexcept {
-    }
+    // template <class U> // cihou shabi wendous
+    // constexpr CudaAllocator(CudaAllocator<U> const &other) noexcept {
+    // }
 
     constexpr bool operator==(CudaAllocator<T> const &other) const {
         return this == &other;
