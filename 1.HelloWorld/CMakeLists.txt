@@ -35,3 +35,10 @@ target_include_directories(04sugar PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(04sugar ${CUDA_LIBRARIES})
 target_compile_options(04sugar PUBLIC $<$<COMPILE_LANGUAGE:CUDA>:--extended-lambda>)  # 启用CUDA扩展lambda，允许lambda声明为__device__
 install(TARGETS 04sugar DESTINATION bin)
+
+# math.cu
+add_executable(05math math.cu)
+target_include_directories(05math PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(05math ${CUDA_LIBRARIES})
+target_compile_options(05math PUBLIC $<$<COMPILE_LANGUAGE:CUDA>:--extended-lambda>)
+install(TARGETS 05math DESTINATION bin)
