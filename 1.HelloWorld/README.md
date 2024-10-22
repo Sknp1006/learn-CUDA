@@ -136,3 +136,26 @@ __device__ __inline__ int float_atomic_add(float *dst, float src) {
     return old;
 }
 ```
+
+- SM(Streaming Multiprocess) 与板块(block)的关系
+  - GPU是由多个流式处理器(SM)组成的, 每个SM可以处理一个或多个板块(block);
+  - SM由多个SP(Streaming Processor)组成, 每个SP可以处理一个或多个线程;
+  - 每个SM都有自己的共享内存;
+  - 通常板块数量总是大于SM的数量;
+  - GPU不会像CPU一样做时间片轮换，板块一旦被调度到一个SM就会一直执行，直到完成;没有保存和切换上下文的开销;
+  - 一个SM可以同时执行多个板块，这时多个板块共用同一块共享内存;
+  - 板块内部的每个线程则是被进一步调度到SM上的每个SP;
+
+- 线程组分歧(wrap divergence)
+  - GPU线程组中32个线程是绑在一起执行的，就像CPU的SIMD;
+  - 因此出现分支if语句时，如果32个cond有真有假，则会导致两个分支都执行;
+  - 不过在cond为假的线程在真分支会避免修改寄存器和访存，为了避免则会产生开销;
+  - 因此建议GPU上的if尽可能32个线程都处于同一个分支，要么全为真，要么全为假，否则实际消耗两倍时间;
+  - 避免修改寄存器和访存相当于CPU的SIMD指令_mm_blendv_ps和_mm_store_mask_ps，不过GPU这种SIMT的设计能自动处理分支和循环的分歧，这是门槛比CPU低的地方; ——王鑫磊
+
+- BLS(block-local storage)
+  - https://developer.download.nvidia.cn/assets/cuda/files/reduction.pdf
+
+- block.cu的例子说明了atomicAdd的原理，实际上：
+  - 编译器自动优化成了BLS数组求和，甚至比手写的更高效;
+  - 其他原子操作同理;

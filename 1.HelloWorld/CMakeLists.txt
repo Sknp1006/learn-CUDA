@@ -55,3 +55,9 @@ add_executable(07atomic atomic.cu)
 target_include_directories(07atomic PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(07atomic ${CUDA_LIBRARIES})
 install(TARGETS 07atomic DESTINATION bin)
+
+# block.cu
+add_executable(08block block.cu)
+target_include_directories(08block PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(08block ${CUDA_LIBRARIES})
+install(TARGETS 08block DESTINATION bin)
