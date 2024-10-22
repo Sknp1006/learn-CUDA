@@ -61,3 +61,10 @@ add_executable(08block block.cu)
 target_include_directories(08block PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(08block ${CUDA_LIBRARIES})
 install(TARGETS 08block DESTINATION bin)
+
+# ndarray.cu
+add_executable(09ndarray ndarray.cu)
+target_include_directories(09ndarray PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(09ndarray ${CUDA_LIBRARIES})
+install(TARGETS 09ndarray DESTINATION bin)
+
