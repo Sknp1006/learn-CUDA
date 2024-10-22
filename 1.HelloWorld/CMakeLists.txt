@@ -68,3 +68,13 @@ target_include_directories(09ndarray PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(09ndarray ${CUDA_LIBRARIES})
 install(TARGETS 09ndarray DESTINATION bin)
 
+# stencil.cu
+include(${CMAKE_SOURCE_DIR}/3rdparty/3rdparty.cmake)
+include_directories(${3rdparty_INCLUDE_DIRS})
+add_executable(10stencil stencil.cu)
+target_include_directories(10stencil PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(10stencil ${CUDA_LIBRARIES})
+target_compile_options(10stencil PUBLIC $<$<COMPILE_LANGUAGE:CUDA>:--extended-lambda>)
+target_compile_options(10stencil PUBLIC $<$<COMPILE_LANGUAGE:CUDA>:--expt-relaxed-constexpr>)
+install(TARGETS 10stencil DESTINATION bin)
+install(FILES original.jpg DESTINATION bin)
