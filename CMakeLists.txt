@@ -9,4 +9,6 @@ set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/install)
 set(CMAKE_CUDA_ARCHITECTURES 75)  # Nvidia Geforce 2070s
 set(CMAKE_CUDA_SEPARABLE_COMPILATION OFF)  # 分离声明和定义，不建议开启，关闭可方便自动内联优化
 
+set(3rdparty ${CMAKE_SOURCE_DIR}/3rdparty)
+
 add_subdirectory("1.HelloWorld")
