@@ -29,37 +29,9 @@ scoop reset cuda11.6
 - 安装过程：略
 - 安装完成务必重启电脑！！！
 
-### 1.2 编辑器环境
-
-- 推荐使用vscode
-
-- 插件列表
-
-```txt
-C/C++ Extension Pack:
-	C/C++
-	C/C++ Themes
-	CMake
-	CMake Tools
-	
-Darcula Theme
+### 1.2 文件结构
 ```
-
-- 工作区配置
-
-```json
-{    
-    "C_Cpp.errorSquiggles": "disabled",
-    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
-    "C_Cpp.autocomplete": "default",
-    "C_Cpp.default.intelliSenseMode": "windows-msvc-x64",
-    "C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
-    "C_Cpp.inlayHints.autoDeclarationTypes.showOnLeft": true,
-    "C_Cpp.intelliSenseEngine": "default",
-    "C_Cpp.intelliSenseEngineFallback": "enabled",
-    "C_Cpp.experimentalFeatures": "enabled",
-    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
-}
+1.HelloWorld：新手村
 ```
 
 ## 2.编译
