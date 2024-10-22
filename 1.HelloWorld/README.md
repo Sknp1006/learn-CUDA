@@ -90,3 +90,49 @@ explicitly.
   and may be removed in a future version of CMake.
 ```
 将 find_package(CUDA) 替换为 find_package(CUDAToolkit REQUIRED) 即可解决警告;
+
+- 原子操作:
+  - atomicAdd(dst, src): *dst += src;
+  - atomicSub(dst, src): *dst -= src;
+  - atomicOr(dst, src): *dst |= src;
+  - atomicAnd(dst, src): *dst &= src;
+  - atomicXor(dst, src): *dst ^= src;
+  - atomicMax(dst, src): *dst = max(*dst, src);
+  - atomicMin(dst, src): *dst = min(*dst, src);
+  - atomicExch(dst, src): *dst = src;
+  - atomicCAS(dst, compare, val): if (*dst == compare) *dst = val; return *dst;
+
+- 用atomicCAS实现atomicAdd:
+```c++
+    __device__ __inline__ int my_atomic_add(int *dst, int src) {
+    int old = *dst, expect;
+    do {
+        expect = old;
+        old = atomicCAS(dst, expect, expect + src);  // 为什么要判断expect, 为了防止其他线程修改了dst的值;
+    } while (expect != old);
+    return old;
+}
+
+__global__ void parallel_sum(int *sum, int const *arr, int n) {
+    int local_sum = 0;
+    for (int i = blockDim.x * blockIdx.x + threadIdx.x;
+         i < n; i += blockDim.x * gridDim.x) {
+        local_sum += arr[i];
+    }
+    my_atomic_add(&sum[0], local_sum);
+}
+```
+
+- atomicCAS可以实现任意原子操作:
+> CAS非常影响性能，如无必要，尽量避免使用;
+```c++
+__device__ __inline__ int float_atomic_add(float *dst, float src) {
+    int old = __float_as_int(*dst), expect;
+    do {
+        expect = old;
+        old = atomicCAS((int *)dst, expect,
+                    __float_as_int(__int_as_float(expect) + src));
+    } while (expect != old);
+    return old;
+}
+```

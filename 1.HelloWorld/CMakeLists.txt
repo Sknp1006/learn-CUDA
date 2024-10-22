@@ -49,3 +49,9 @@ target_include_directories(06thrust PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(06thrust ${CUDA_LIBRARIES})
 target_compile_options(06thrust PUBLIC $<$<COMPILE_LANGUAGE:CUDA>:--extended-lambda>)
 install(TARGETS 06thrust DESTINATION bin)
+
+# atomic.cu
+add_executable(07atomic atomic.cu)
+target_include_directories(07atomic PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(07atomic ${CUDA_LIBRARIES})
+install(TARGETS 07atomic DESTINATION bin)
