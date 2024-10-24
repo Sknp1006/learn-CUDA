@@ -45,7 +45,7 @@ __global__ void parallel_transpose_shared(T *out, T const *in, int nx, int ny)
 }
 
 /// 通过跨步+1避免区块冲突
-template <int blockSize, calss T>
+template <int blockSize, class T>
 __global__ void parallel_transpose_shared_1(T *out, T const *in, int nx, int ny)
 {
     int x = blockIdx.x * blockDim.x + threadIdx.x;
